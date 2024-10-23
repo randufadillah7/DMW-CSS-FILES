@@ -1,0 +1,284 @@
+<style>
+/* Mengatur tampilan halaman secara keseluruhan */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 10px;
+  background-color: #cad2c5; /* Warna latar belakang lembut */
+  color: #2f3e46; /* Warna teks utama */
+}
+
+h1 {
+  color: #2f3e46; /* Warna teks utama */
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-family: monospace;
+}
+
+/* Gaya untuk tombol */
+.button {
+  background-color: #52796f; /* Warna tombol modern hijau tua */
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  max-width: auto;
+  margin: 10px 0;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #354f52; /* Warna tombol saat hover */
+}
+
+/* Gaya untuk tombol tambah */
+.add-button {
+  background-color: #52796f; /* Warna tombol modern hijau tua */
+  color: white;
+  padding: 5px 2px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  max-width: auto;
+  margin: 10px 0;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.add-button:hover {
+  background-color: #354f52; /* Warna tombol saat hover */
+}
+
+/* Gaya untuk input box */
+.material-input-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+/* Input field for material quantity */
+.material-input {
+  padding: 3px;
+  font-size: 14px;
+  font-family: monospace;
+  border: 3px solid #84a98c;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 80px; /* Adjust this to ensure alignment with .search-input */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Input field for DATE */
+.date-input {
+  padding: 3px;
+  font-size: 14px;
+  font-family: monospace;
+  border: 3px solid #84a98c;
+  border-radius: 10px;
+  width: 100%;
+  max-width: auto; /* Adjust this to ensure alignment with .search-input */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Input field for TEXT */
+.text-input {
+  padding: 3px;
+  font-size: 14px;
+  font-family: monospace;
+  border: 3px solid #84a98c;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 120px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Gaya untuk input pencarian teknisi */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+  position: relative;
+  justify-content: flex-start;
+}
+
+/* Input field for material search */
+.search-input {
+  padding: 3px;
+  font-size: 14px;
+  font-family: monospace;
+  border: 3px solid #84a98c;
+  border-radius: 10px;
+  width: 100%;
+  max-width: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nik-display {
+  padding: 3px;
+  font-size: 14px;
+  font-family: monospace;
+  border: 3px solid #84a98c;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 80px; /* Adjust this to ensure alignment with .search-input */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.search-results {
+  border: 1px solid #ddd;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  max-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-family: monospace;
+}
+
+.search-item {
+  padding: 2px;
+  cursor: pointer;
+  border-bottom: 2px solid #eee;
+  transition: background-color 0.2s ease;
+  font-family: monospace;
+}
+
+.search-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Gaya untuk combobox (dropdown) */
+.combobox {
+  background-color: #fff;
+  color: #2f3e46;
+  padding: 3px;
+  font-size: 14px;
+  font-family: monospace;
+  border: 3px solid #84a98c;
+  border-radius: 10px;
+  width: 100%;
+  max-width: auto;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.combobox:hover {
+  border-color: #52796f;
+}
+
+/* Gaya untuk label combobox */
+label {
+  font-size: 11px;
+  color: #2f3e46;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-family: monospace;
+}
+
+/* Gaya untuk tabel */
+table {
+  width: 100%;
+  max-width: auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-collapse: collapse;
+  background-color: #cad2c5; /* Latar belakang tabel */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: none;
+  font-size: 12px;
+}
+
+/* Gaya untuk header tabel */
+th {
+  background-color: #2f3e46; /* Header tabel */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Gaya untuk sel tabel */
+td {
+  color: #333;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+/* Gaya untuk baris yang di-hover */
+tr:hover td {
+  background-color: #84a98c; /* Warna saat hover */
+}
+
+/* Gaya untuk baris kedua dengan warna berbeda */
+tr:nth-child(even) td {
+  background-color: #b8c9ba; /* Warna baris genap */
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 768px) {
+  table, th, td {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
+
+/* Loading spinner */
+#loading {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Loading animation (spinner) */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #44A1A0; /* Spinner dengan warna sekunder */
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+}
+
+</style>
